@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        .container {
+            width: 1200px;
+            margin-inline: auto;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .col {
+            width: 33.3333%;
+            padding: 10px;
+        }
+        .card {
+            /* border:1px solid #f00 */
+            background-color: #e2e2e2;
+            border-radius: 10px;
+            overflow: hidden;
+
+        }
+        .card-img {
+            aspect-ratio:16 / 9;
+        }
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .card-body {
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            gap: 15px;
+        }
+        .card a {
+            color: #b3006e;
+            text-decoration: none;
+            text-transform: uppercase;
+            background-color: #fff067;
+            padding: 8px 30px;
+            border-radius: 8px;
+            /* align-self: end; */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="col">
+            <div class="card">
+                <div class="card-img">
+                    <img src="/images/cat.jpg" alt="">
+                </div>
+                <div class="card-body">
+                    <h2>title</h2>
+                    <p>
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aspernatur, quia!
+                    </p>
+                    <a href="#">Link</a>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card">
+                <div class="card-img">
+                    <img src="/images/cat.jpg" alt="">
+                </div>
+                <div class="card-body">
+                    <h2>title</h2>
+                    <p>
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aspernatur, quia!
+                    </p>
+                    <a href="#">Link</a>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card">
+                <div class="card-img">
+                    <img src="/images/cat.jpg" alt="">
+                </div>
+                <div class="card-body">
+                    <h2>title</h2>
+                    <p>
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aspernatur, quia!
+                    </p>
+                    <a href="#">Link</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
