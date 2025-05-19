@@ -1,0 +1,17 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+const {frontmatter} = Astro.props
+---
+<BaseLayout>
+    <div class="aspect-video my-10">
+        <img src={frontmatter.hero.src} alt="" class="w-full h-full object-cover">
+    </div>
+    <div class="flex flex-col gap-3 my-10">
+        <h2 class="text-4xl font-bold">{frontmatter.title}</h2>
+        <div>{frontmatter.author}</div>
+        <div>{frontmatter.pubDate}</div>
+        <hr>
+        <slot />
+        <a href="/blog" class="text-sky-500 font-bold">文章首頁</a>
+    </div>
+</BaseLayout>
