@@ -8,7 +8,9 @@ const allPosts = Object.values(import.meta.glob('./posts/*.md',{eager:true}))
     <ul>
 
         {
-            allPosts.map((post:any) => <li>{post.frontmatter.title}</li>)
+            allPosts.map((post:any) => <li>
+                <a href={post.url}>{post.frontmatter.title}</a>
+            </li>)
         }
     </ul>
     <!-- <ul>
