@@ -1,32 +1,16 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-
+import Card from "../../components/Card.astro"
 const allPosts = Object.values(import.meta.glob('./posts/*.md',{eager:true}))
 ---
 <BaseLayout pageTitle="Blog">
     <h1>Blog</h1>
     <section class="w-full flex flex-wrap">
-        <div class="w-1/2 p-3">
-            <div class="border border-slate-300 rounded-xl overflow-hidden">
-                <div class="aspect-video">
-                    <img src={allPosts[0].frontmatter.hero.src} alt="" class="w-full h-full object-cover">
-                </div>
-                <div class="p-3 flex flex-col gap-3">
-                    <h3 class="text-xl font-bold">{allPosts[0].frontmatter.title}</h3>
-                    <a href={allPosts[0].url} class="text-sky-500 font-bold">繼續閱讀</a>
-                </div>
-            </div>
-        </div>
-        
-    </section>
-    <ul>
-
         {
-            allPosts.map((post:any) => <li>
-                <a href={post.url}>{post.frontmatter.title}</a>
-            </li>)
-        }
-    </ul>
+            allPosts.map((post:any) => <Card post={post.frontmatter} url={post.url}></Card> )
+        }    
+    </section>
+    
     <!-- <ul>
         <li><a href="/blog/posts/001">001</a></li>
         <li><a href="/blog/posts/002">002</a></li>
