@@ -7,7 +7,8 @@ const uniqueTags = [...new Set(allPosts.map((post:any) => post.frontmatter.tags)
     <h2 class="text-center text-xl font-bold my-5">所有標籤</h2>
     <div class="flex flex-wrap gap-4 justify-center">
         {
-            uniqueTags.map((tag:any) => <a href={`/tags/${tag}`} class="text-sm py-1 px-3 bg-amber-300 rounded-xl">{tag}</a>)
+            uniqueTags.map((tag:any) => <a href={`/tags/${tag}`} 
+            class="hover:bg-pink-600 hover:text-white duration-150 text-sm py-1 px-3 bg-amber-300 rounded-xl">{tag}</a>)
         }
     </div>
 </BaseLayout>
