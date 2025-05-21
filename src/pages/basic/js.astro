@@ -1,19 +1,58 @@
+---
+    const allPosts = Object.values(import.meta.glob('../blog/posts/*.md',{eager: true}))
+
+    allPosts.map(post => post)
+
+---
 <script>
+    const allPosts = Object.values(import.meta.glob('../blog/posts/*.md',{eager: true}))
+    const r = [...new Set(allPosts.map((post:any) => post.frontmatter.tags).flat())]
+    console.log(r)
+
+    let arr = ['apple','banana','kiwi','banbna','apple','apple']
+
+    // arr = new Set(arr)
+
+    // arr = Array.from(arr)
+    // arr = [...arr]
+
     const posts = [
         {
-            title: '黃仁勳抵達台灣！今晚與魏哲家晚餐 總部地點可能下周一宣布',
-            date: '2025-05-15'
+            title: '001',
+            tags: ['a','b']
         },
         {
-            title: '詐騙郵件「欠繳ETC費用」要小心！ 他信用卡遭盜刷2.5萬恐還得付利息',
-            date: '2025-05-16'
+            title: '002',
+            tags: ['b','c','d']
         },
         {
-            title: '【藝人閃兵】陳零九宣布停工！電視台證實他請辭《娛百》 接棒人選曝',
-            date: '2025-05-17'
+            title: '003',
+            tags: ['a','d']
         }
     ]
 
-    const post_titles = posts.map((post:any) => post.date)
-    console.log(post_titles)
+    const tags = [...new Set(posts.map(post => post.tags).flat())]
+
+    const filterPosts = posts.filter(post=>post.tags.includes('d'))
+    console.log(filterPosts)
+
+
+    // const posts = [
+    //     {
+    //         title: '黃仁勳抵達台灣！今晚與魏哲家晚餐 總部地點可能下周一宣布',
+    //         date: '2025-05-15'
+    //     },
+    //     {
+    //         title: '詐騙郵件「欠繳ETC費用」要小心！ 他信用卡遭盜刷2.5萬恐還得付利息',
+    //         date: '2025-05-16'
+    //     },
+    //     {
+    //         title: '【藝人閃兵】陳零九宣布停工！電視台證實他請辭《娛百》 接棒人選曝',
+    //         date: '2025-05-17'
+    //     }
+    // ]
+
+    // const post_titles = posts.map((post:any) => post.date)
+    // console.log(post_titles)
+
 </script>
