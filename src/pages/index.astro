@@ -3,6 +3,8 @@ import BaseLayout from "../layouts/BaseLayout.astro"
 import Hero from "../components/Hero.astro"
 import Card from "../components/Card.astro"
 
+import { fade } from "astro:transitions"
+
 const allPosts = Object.values(import.meta.glob('./blog/posts/*.md',{eager: true}))
 allPosts.sort((b:any, a:any) => a.frontmatter.pubDate.localeCompare(b.frontmatter.pubDate) ||
 b.frontmatter.pubDate.localeCompare(a.frontmatter.pubDate))
@@ -15,8 +17,8 @@ allPosts.length = 2
 const myTitle = 'Hello Astro'
 ---
 <BaseLayout pageTitle="Home">
-	<Hero></Hero>
-	<h2 class="text-2xl font-bold text-center my-6">標籤</h2>
+	<Hero ></Hero>
+	<h2 class="text-2xl font-bold text-center my-6" transition:animate={fade({duration: '1s'})}>標籤</h2>
 	<section class="w-full flex flex-wrap justify-center gap-4">
 		{
             uniqueTags.map((tag:any) => <a href={`/tags/${tag}`} 

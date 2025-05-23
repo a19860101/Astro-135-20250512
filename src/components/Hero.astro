@@ -1,3 +1,6 @@
-<header class="w-200 mx-auto aspect-video mt-8 px-3">
+---
+import { slide } from "astro:transitions";
+---
+<header class="w-200 mx-auto aspect-video mt-8 px-3" transition:animate={slide({duration: '0.5s'})}>
     <img src="/images/cat.jpg" alt="" class="w-full h-full object-cover rounded-xl">
 </header>

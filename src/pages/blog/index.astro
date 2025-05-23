@@ -1,6 +1,8 @@
 ---
+
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Card from "../../components/Card.astro"
+
 const allPosts = Object.values(import.meta.glob('./posts/*.md',{eager:true}))
 allPosts.sort((b:any, a:any) => a.frontmatter.pubDate.localeCompare(b.frontmatter.pubDate) ||
 b.frontmatter.pubDate.localeCompare(a.frontmatter.pubDate))
@@ -9,7 +11,7 @@ b.frontmatter.pubDate.localeCompare(a.frontmatter.pubDate))
     <h1 class="text-center text-6xl font-bold py-10">Blog</h1>
     <section class="w-full flex flex-wrap">
         {
-            allPosts.map((post:any) => <Card post={post.frontmatter} url={post.url}></Card> )
+            allPosts.map((post:any,idx) => <Card idx={idx} post={post.frontmatter} url={post.url}></Card> )
         }    
     </section>
     
