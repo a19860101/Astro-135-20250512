@@ -1,6 +1,23 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { slide } from "astro:transitions";
 ---
 <BaseLayout pageTitle="About">
-    <h1>About</h1>
+    <div class="grid grid-cols-2 gap-4 items-center mt-12">
+        <div class="flex flex-col gap-4 pr-6" transition:animate={slide({duration:'0.6s'})}>
+            <h2 class="text-xl font-bold">About</h2>
+            <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit excepturi molestias deserunt odit suscipit architecto tenetur quod sequi. Harum, nisi eligendi similique ipsa at fugit accusantium dolor voluptates ratione veniam.
+            </p>
+            <ul>
+                <li>list</li>
+                <li>list</li>
+                <li>list</li>
+                <li>list</li>
+            </ul>
+        </div>
+        <div class="aspect-square"transition:animate={slide({duration:'1.2s'})}>
+            <img src="/images/cat.jpg" alt="" class="w-full h-full object-cover rounded-xl shadow-2xl">
+        </div>
+    </div>
 </BaseLayout>
