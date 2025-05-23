@@ -2,10 +2,15 @@
 import BaseLayout from "../layouts/BaseLayout.astro"
 import Hero from "../components/Hero.astro"
 import Card from "../components/Card.astro"
+import { record } from "astro:schema"
 
 const allPosts = Object.values(import.meta.glob('./blog/posts/*.md',{eager: true}))
-allPosts.length = 2
+allPosts.sort((b:any, a:any) => a.frontmatter.pubDate.localeCompare(b.frontmatter.pubDate) ||
+b.frontmatter.pubDate.localeCompare(a.frontmatter.pubDate))
 
+const featurePosts = allPosts.filter((p:any) => p.frontmatter.feature == true)
+
+allPosts.length = 2
 const myTitle = 'Hello Astro'
 ---
 <BaseLayout pageTitle="Home">
@@ -14,6 +19,12 @@ const myTitle = 'Hello Astro'
 	<section class="w-full flex flex-wrap">
         {
             allPosts.map((post:any) => <Card post={post.frontmatter} url={post.url}></Card> )
+        }    
+    </section>
+	<h2 class="text-2xl font-bold text-center my-6">精選文章</h2>
+	<section class="w-full flex flex-wrap">
+        {
+            featurePosts.map((post:any) => <Card post={post.frontmatter} url={post.url}></Card> )
         }    
     </section>
 </BaseLayout>
